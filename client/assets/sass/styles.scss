@@ -1,0 +1,160 @@
+@import "compass";
+$bg: #f1f1f1;
+@mixin transition($value) {
+	-webkit-transition: $value;
+	-moz-transition: $value;
+	-ms-transition: $value;
+	-o-transition: $value;
+	transition: $value;
+	
+}
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+	padding-top:10px;
+	font-size: 14px;
+	background: $bg;
+}
+.clear{
+	float: none;
+	clear: both;
+}
+.center{
+	text-align: center;
+}
+.right{
+	text-align: right;
+}
+.load{
+	background: url(../img/load.gif) no-repeat center center rgba(255,255,255,.9);
+	box-shadow: 1px 1px 20px #000;
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	text-align: center;
+	position: fixed;
+	top: 30%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 999999;
+}
+.row{
+	background: #fff;
+	box-sizing: border-box;
+	.row{
+		margin:auto;
+	}
+	&.more{
+		background: $bg;
+	}
+	&.search{
+		background: $bg;
+		&.postfix-radius{
+			padding: 20px 20px 10px;
+		}
+	}
+}
+ul{
+	&.vl{
+		li{
+			box-sizing: border-box;
+			width: 20%;
+			padding: 8px;
+			height: 210px;
+		 	border-bottom: 1px solid #e1e1e1;
+		 	overflow: hidden;
+		 	float: left;
+		}
+	}
+}
+.video-wrap {
+	width: 100%;
+	position: relative;
+	text-align: center;
+	transition: ease all .5s;
+	.run{
+		margin: auto;
+		position: absolute;
+		top:0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		width: 70px;
+		height: 70px;
+		background: url(../img/run.png) bottom center no-repeat;
+		@include transition(ease all .5s);
+	}
+	&:hover{
+		.run{
+			background-position: top center;
+		}
+	}
+	&.inload{
+		.run{
+			background: url(../img/load.gif) no-repeat;
+			&:hover{
+				background: url(../img/load.gif) top center no-repeat;
+			}
+		}
+	}
+	&.list{
+		video{
+			width: 100%;
+			height: 90px;
+		}
+	}
+}
+.name{
+	font-size: 16px;
+	margin: 10px 0;
+}
+.name.link{
+	color: #167ac6;
+	font-size: 13px;
+	cursor:pointer;
+	margin: 0;
+	
+}
+.name.link:hover{
+	text-decoration: underline;
+}
+.overall{
+	font-size: 11px;
+	color: #767676;
+	line-height: 1.3;
+	margin-bottom: 5px;
+}
+.ratings{
+	width: 100px;
+	height: 19px;
+	background: url(../img/rating.png) top left;
+	overflow: hidden;
+	position: relative;
+	.done{
+		height: 100%;
+		background: url(../img/rating.png) bottom left;
+	}
+	.rat{
+		float: left;
+		height: 100%;
+		width: 20%;
+		&.hover{
+			background: url(../img/rating.png) bottom left;
+		}
+		&.disabled{
+			background: url(../img/rating.png) top left;
+		}
+	}
+}
+.postfix.search{
+	background-image: url(../img/search.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+.logout.list{
+	margin-top: 35px;
+}
+@import "mediaqueries";

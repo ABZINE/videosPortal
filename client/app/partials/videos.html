@@ -1,0 +1,59 @@
+
+<div id="home">
+  <div class="row search">
+    
+    <div class="large-6 large-offset-3 columns">
+      <div class="row collapse postfix-radius search"><br>
+        <div class="small-10 columns">
+          <input type="text" placeholder="Search" ng-model="searchFor.name">
+        </div>
+        <div class="small-2 columns">
+          <a href="javascript:void(0)" class="button secondary postfix">Go</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="small-2 small-offset-1 columns abs">
+      <button class="button secondary small logout postfix list" ng-click="logout()">Log Out</button>
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <ul class="vl" scroll="loadMore()">
+        <li ng-repeat="video in videos | filter:searchFor">
+            
+          <div class="video-wrap list inload" ng-click="pauseOrPlay($index)">
+            <div class="run"></div>
+            <video width="200" video-loader class="vid{{$index}}" preload="metadata">
+              <source ng-src="{{video.url}}" type="video/mp4" />
+            </video>
+          </div>
+          
+          <div class="ratings">
+            <div class="rat" rating="rating(video._id,1)"></div>
+            <div class="rat" rating="rating(video._id,2)"></div>
+            <div class="rat" rating="rating(video._id,3)"></div>
+            <div class="rat" rating="rating(video._id,4)"></div>
+            <div class="rat" rating="rating(video._id,5)"></div>
+            <!-- <div class="rat r{{rat}}" ng-repeat="rat in [1,2,3,4,5]" rating="rating(video._id,rat)"></div> -->
+            <div class="done" style="width:{{video.avg*100/5}}%"></div>
+          </div>
+          <div class="overall">{{video.ratings.length}} votes recorded ({{average(video.ratings).toFixed(1)}} rating)</div>
+          <div class="name link" ng-click="getvideoById(video._id)">{{video.name.substr(0,55)}}</div>
+          <!-- <p class="desc">{{video.description.substr(0,50)}}</p> -->
+        </li> 
+      </ul>
+      <div class="clear"></div>
+      <div class="load"></div>
+    </div>
+  </div>
+
+  <div class="row center more">
+    <br>
+    <button class="button radius secondary center" ng-click="loadMore()">More videos</button>
+  </div>
+
+</div>

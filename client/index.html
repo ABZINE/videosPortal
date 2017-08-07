@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Crossover Video Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/normalize.css">
+  <link rel="stylesheet" href="assets/css/foundation.min.css">
+	<link rel="stylesheet" href="assets/css/styles.css">
+	<script src="assets/js/jquery.js"></script>
+  <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/angular-route.min.js"></script>
+  <script src="assets/js/angular-cookies.min.js"></script>
+  <script src="assets/js/angular-md5.min.js"></script>
+</head>
+<body>
+
+  <div class="row">
+    <div class="large-12">
+      <div class="row">
+        <h1 class="center">Crossover Video Portal</h1>
+        <div class="large-6 large-offset-3">
+          <div id="flash" class="alert-box alert" ng-show="flash">
+            {{ flash }}
+          </div>
+        </div>
+      </div>
+      <div id="view" ng-view></div>
+    </div>
+  </div>
+  
+  <script src="app/app.js"></script>
+  <script src="app/services/services.js"></script>
+  <script src="app/services/VideoProvider.js"></script>
+  <script src="app/controllers/LoginController.js"></script>
+  <script src="app/controllers/VideosController.js"></script>
+  <script src="app/controllers/VideoController.js"></script>
+  
+
+</body>
+</html>
